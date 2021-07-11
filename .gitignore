@@ -6,3 +6,10 @@
 /build
 /dist
 
+# cypress
+
+# cypress related
+/backend/cypress/screenshots
+/backend/cypress/videos
+/frontend/cypress/screenshots
+/frontend/cypress/videos
