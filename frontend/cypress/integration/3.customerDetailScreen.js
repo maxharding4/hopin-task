@@ -40,6 +40,4 @@ describe('The customer detail screen', () => {
     cy.checkCustData()
   })
 
-  it('Customer detail screen - ')
-
 })
