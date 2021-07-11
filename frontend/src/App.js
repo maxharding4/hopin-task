@@ -42,7 +42,7 @@ class CustomerApp extends Component {
       <div>
         { !this.state.name &&
           <div>
-            <p>Please provide your name:</p>
+            <p data-testid="name-prompt">Please provide your name:</p>
             <p>
               <input type="text" id="name"/>
               <input type="button" value="Submit" onClick={this.getCustomers.bind(this)}/>
@@ -51,10 +51,10 @@ class CustomerApp extends Component {
         }
         { this.state.name && 
           <div>
-            <p>Hi <b>{this.state.name}</b>. It is now <b>{this.state.timestamp}</b> and here is our customer list. Click on each of them to view their contact details.</p>
+            <p data-testid="welcome-message">Hi <b>{this.state.name}</b>. It is now <b>{this.state.timestamp}</b> and here is our customer list. Click on each of them to view their contact details.</p>
             { !this.state.customer &&
             <div>
-              <table border="1">
+              <table data-testid="customer-table" border="1">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -65,7 +65,7 @@ class CustomerApp extends Component {
                 <tbody>
                   { this.state.customers.map(customer => 
                     <tr key={customer.id}>
-                      <td><a href="#" onClick={() => this.getCustomer(customer)}>{customer.name}</a></td>
+                      <td><a data-testid ="customer-link" href="#" onClick={() => this.getCustomer(customer)}>{customer.name}</a></td>
                       <td>{customer.employees}</td>
                       <td>{customer.size}</td>
                     </tr>  
@@ -77,10 +77,10 @@ class CustomerApp extends Component {
             { this.state.customer &&
               <div>
                 <p><b>Customer Details</b></p>
-                <p><b>Name:</b> {this.state.customer.name}</p>
-                <p><b># of Employees:</b> {this.state.customer.employees}</p>
-                <p><b>Size:</b> {this.state.customer.size}</p>
-                <p><b>Contact:</b> {this.state.customer.contactInfo.name} ({this.state.customer.contactInfo.email})</p>
+                <p data-testid="customer-name"><b>Name:</b> {this.state.customer.name}</p>
+                <p data-testid="customer-employees"><b># of Employees:</b> {this.state.customer.employees}</p>
+                <p data-testid="customer-size"><b>Size:</b> {this.state.customer.size}</p>
+                <p data-testid="customer-contact-info"><b>Contact:</b> {this.state.customer.contactInfo.name} ({this.state.customer.contactInfo.email})</p>
                 <input type="button" value="Back to the list" onClick={() => this.setState({customer: null})}/>
               </div>
             }
@@ -95,7 +95,7 @@ class CustomerApp extends Component {
 function App() {
   return (
     <div>
-      <h1>Welcome to Customer App</h1>
+      <h1 data-testid="page-title">Welcome to Customer App</h1>
       <CustomerApp/>
     </div>
   );

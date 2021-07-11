@@ -1,0 +1,7 @@
+{
+  "timeout": 5000,
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "backend": "http://localhost:3001"
+  }
+}
